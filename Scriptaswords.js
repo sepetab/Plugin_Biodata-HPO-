@@ -6,9 +6,9 @@ function str2words(string){
     var n = sArray .length;
     for (var i = 0; i < n; i++) {
       for (var j = 0; j <= i; j++) {
-        var temp = sArray.slice(j, n - i + j).join(' ');
+        var temp = trim(sArray.slice(j, n - i + j).join(' '));
         if(temp.split(' ').length > 1 && temp.split(' ').length < 4){
-          everyComb.push(trim(temp));
+          everyComb.push(temp);
         }
       }
     }
