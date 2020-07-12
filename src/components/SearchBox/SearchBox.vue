@@ -11,7 +11,7 @@
       <treeselect :multiple="true" :clearable="false" :close-on-select="true" :flat="true" :options="ontologyOptions" style="z-index:6;" placeholder="Filter by Ontology" v-model="ontologyValue" />
     </div>
     <div slot='ConceptRec' class='form-group'>
-      <treeselect :multiple="false" :clearable="false" :close-on-select="true" :flat="true" :options="CRoptions" placeholder="Concept Recognizer" v-model="CRvalue" />
+      <treeselect :multiple="false" :clearable="false" :close-on-select="true" :flat="true" :options="CRoptions" style="margin-bottom:40px;" placeholder="Concept Recognizer" v-model="CRvalue" />
     </div>
     <template slot="child_row" scope="props" uniqueKey="props.row.definition">
         <div class='text-wrap' v-if="props.row.definition"><b>Definition: </b>{{props.row.definition[0]}}</div>
