@@ -41,7 +41,6 @@ import {
   ontologyByAcronym
 } from './OntologyData/tree'
 import ontologies from './OntologyData/ontologies'
-
 function copyElementContent(srcElementId) {
   let srcElement = document.getElementById(srcElementId)
   var range = document.createRange();
@@ -52,7 +51,6 @@ function copyElementContent(srcElementId) {
   document.execCommand('Copy');
   selection.removeAllRanges();
 }
-
 function copyElementContentS(cps) {
  const el = document.createElement('textarea');
   el.value = cps;
@@ -61,7 +59,6 @@ function copyElementContentS(cps) {
   document.execCommand('copy');
   document.body.removeChild(el);
 }
-
 function enterPress() {
   let search = document.getElementsByClassName('VueTables__search')[0].children[0];
   const enter = new KeyboardEvent('keyup', {
@@ -69,7 +66,6 @@ function enterPress() {
   });
   search.dispatchEvent(enter);
 }
-
 export default {
   name: 'search-box',
   components: {
@@ -104,10 +100,16 @@ export default {
       ontologyOptions: options,
       results: [],
       request: null,
+      ontorecogniserValue: ['hp'],
       ontoRecogniserOptions: [{
+        id: 'hp',
         label: 'HP',
       }, {
-        label: 'APO',
+        id: 'go',
+        label: 'GO',
+      }, {
+        id: 'pato',
+        label: 'PATO',
       }
       ],
       conceptrecogniserValue: ['ncbo'],
@@ -179,55 +181,44 @@ export default {
 </style><style>tr {
   cursor: pointer;
 }
-
 tr a.hover-action {
   opacity: 0;
 }
-
 tr:hover a.hover-action {
   opacity: 1;
 }
-
 li.VuePagination__pagination-item-next-chunk,
 li.VuePagination__pagination-item-prev-chunk {
   display: none;
 }
-
 div.VuePagination p {
   margin: 0;
 }
-
 ul.pagination {
   margin: 0;
 }
-
 ul.pagination>li>a,
 .pagination>li>span {
   color: #039be5;
 }
-
 .vue-treeselect {
   z-index: 4;
 }
-
 .search-box {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-
 .search-box .controls {
   flex-grow: 0;
   flex-shrink: 0;
 }
-
 .search-box .content {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .VueTables__child-row-toggler {
     width: 16px;
     height: 16px;
@@ -236,18 +227,14 @@ ul.pagination>li>a,
     margin: auto;
     text-align: center;
 }
-
 .VueTables__child-row-toggler--closed::before {
     content: "+";
 }
-
 .VueTables__child-row-toggler--open::before {
     content: "-";
 }
-
 .text-wrap {
   word-wrap: normal;
   white-space: pre-line;
 }
-
 </style>
